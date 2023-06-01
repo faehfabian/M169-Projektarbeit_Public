@@ -20,7 +20,7 @@ ENV APACHE_HTTP_PORT_NUMBER="8080"
 EXPOSE 8080 8443" > /home/vmadmin/Desktop/Dockerfile
 
 # Docker-Secret Passwortdatei erstellen
-echo "bitnami" > db_password.txt
+echo "16bZ52OStUVUTz" > /home/vmadmin/Desktop/db_password.txt
 
 
 # Docker-compose File erstellen
@@ -77,7 +77,7 @@ networks:
  
 secrets:
    db_password:
-     file: db_password.txt" > docker-compose.yml
+     file: db_password.txt" > /home/vmadmin/Desktop/docker-compose.yml
 
 # Docker Compose ausführen
 docker-compose up -d
