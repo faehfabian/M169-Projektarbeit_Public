@@ -1,12 +1,12 @@
 #!/bin/bash
 
-mkdir ./moodle-persistence
-mkdir ./mariadb-persistence
-mkdir ./moodledata-persistence
+mkdir /home/vmadmin/Desktop/moodle-persistence
+mkdir /home/vmadmin/Desktop/mariadb-persistence
+mkdir /home/vmadmin/Desktop/moodledata-persistence
 
-sudo chown -R 1001:1001 ./mariadb-persistence
-sudo chown -R 1001:1001 ./moodle-persistence
-sudo chown -R 1001:1001 ./moodledata-persistence
+sudo chown -R 1001:1001 /home/vmadmin/Desktop/mariadb-persistence
+sudo chown -R 1001:1001 /home/vmadmin/Desktop/moodle-persistence
+sudo chown -R 1001:1001 /home/vmadmin/Desktop/moodledata-persistence
 
 # Dockerfile erstellen
 echo "FROM bitnami/moodle:4.1
@@ -86,18 +86,18 @@ docker-compose up -d
 sleep 300
 
 # MySQL-Dump erstellen
-sudo mysqldump --password='Riethuesli>12345' moodle > dump.sql
+sudo mysqldump --password='Riethuesli>12345' moodle > /home/vmadmin/Desktop/dump.sql
 
 sleep 10
 
 # Dump in den MySQL-Container laden
-docker cp dump.sql mymariadb:/var/lib/mysql
+docker cp /home/vmadmin/Desktop/dump.sql mymariadb:/var/lib/mysql
 
 sleep 10
 
 # In den MariaDB-Container wechseln und den Dump importieren
 docker exec -i mymariadb bash -c "mysql -u root -e 'DROP DATABASE bitnami_moodle; CREATE DATABASE bitnami_moodle;'"
-docker exec -i mymariadb mysql -u root bitnami_moodle < ./dump.sql
+docker exec -i mymariadb mysql -u root bitnami_moodle < /home/vmadmin/Desktop/dump.sql
 
 echo "Öffnen Sie http://localhost:80 in ihrem Browser und führen Sie das Datenbankupgrade aus."
 # Ausgabe einer Nachricht
