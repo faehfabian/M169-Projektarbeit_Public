@@ -79,8 +79,9 @@ secrets:
    db_password:
      file: db_password.txt" > /home/vmadmin/Desktop/docker-compose.yml
 
-# Docker Compose ausführen
-docker-compose up -d
+# Docker Compose in einer Subshell ausführen
+
+( cd /home/vmadmin/Desktop/ && docker-compose up -d )
 
 # Warten, bis die Container gestartet sind
 sleep 300
