@@ -14,10 +14,10 @@ echo "FROM bitnami/moodle:4.1
 LABEL maintainer "fabian@example.com"
 LABEL description "Moodle-Seite fuers M169"
 
-ENV APACHE_HTTPS_PORT_NUMBER="443"
-ENV APACHE_HTTP_PORT_NUMBER="80"
+ENV APACHE_HTTPS_PORT_NUMBER="8443"
+ENV APACHE_HTTP_PORT_NUMBER="8080"
 
-EXPOSE 80 443" > /home/vmadmin/Desktop/Dockerfile
+EXPOSE 8080 8443" > /home/vmadmin/Desktop/Dockerfile
 
 # Docker-Secret Passwortdatei erstellen
 echo "bitnami" > db_password.txt
@@ -46,8 +46,8 @@ services:
     build: /home/vmadmin/Desktop/
     container_name: moodle
     ports:
-      - \"80:80\"
-      - \"443:443\"
+      - \"80:8080\"
+      - \"443:8443\"
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MOODLE_DATABASE_USER=bn_moodle
