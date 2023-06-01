@@ -113,6 +113,7 @@ sleep 10
 
 sudo cp -r /var/www/moodledata/* /home/vmadmin/Desktop/moodledata-persistence/
 
-# Aufräumen: Lokalen Dump und docker-compose file entfernen
-rm dump.sql
-rm docker-compose.yml
+# Aufräumen
+rm /home/vmadmin/Desktop/dump.sql
+rm /home/vmadmin/Desktop/docker-compose.yml
+rm /home/vmadmin/Desktop/Dockerfile
