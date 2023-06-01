@@ -100,6 +100,8 @@ sleep 10
 docker exec -i mymariadb bash -c "mysql -u root -e 'DROP DATABASE bitnami_moodle; CREATE DATABASE bitnami_moodle;'"
 docker exec -i mymariadb mysql -u root bitnami_moodle < /home/vmadmin/Desktop/dump.sql
 
+sleep 60
+
 echo "Öffnen Sie http://localhost:80 in ihrem Browser und führen Sie das Datenbankupgrade aus."
 # Ausgabe einer Nachricht
 echo "Das Skript wurde pausiert. Drücken Sie Enter um fortzufahren."
@@ -109,8 +111,6 @@ read
 
 # Fortsetzung des Skripts
 echo "Fortsetzung des Skripts..."
-
-sleep 10
 
 sudo cp -r /var/www/moodledata/* /home/vmadmin/Desktop/moodledata-persistence/
 
